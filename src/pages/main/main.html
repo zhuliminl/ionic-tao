@@ -1,0 +1,37 @@
+<ion-header  *ngIf="api.isIphoneX === true" class="iphone-x"></ion-header>
+<ion-header  *ngIf="api.isIphoneOthers === true" class="iphone-others"></ion-header>
+<ion-content no-bounce>
+  <ion-navbar>
+    <!--<ion-title>Home</ion-title>-->
+    <div (click)="goSearch()" class="search" type="text">找寻独家优惠</div>
+    <div class="show-cats" (click)="showCats()"><ion-icon name="md-apps"></ion-icon></div>
+
+  </ion-navbar>
+
+  <div *ngIf="isShowCats" class="cats-list" [ngClass]="{'iphone-x': api.isIphoneX, 'iphone-others': api.isIphoneOthers}">
+
+    <div class="inner-body bounceInDown animated">
+      <div class="items">
+        <div class="item" (click)="doSelectTopTab(i)" *ngFor="let cat of cats; let i = index">
+          <img [src]="'assets/imgs/cids/cid_' + cat.cid + '.jpg'"/>
+          <span>{{cat.main_name}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="close-area" (click)="isShowCats = false"></div>
+
+  </div>
+  <div *ngIf="isShowCats" class="choice-cat" [ngClass]="{'iphone-x': api.isIphoneX}">选择分类</div>
+  <super-tabs [ngClass]="{'iphone-x': api.isIphoneX, 'iphone-others': api.isIphoneOthers}" [style.height.px]="bodyHeight" float-header [scrollTabs]="true">
+    <super-tab *ngFor="let cat of cats; let i = index"
+               [root]="getPageByCid(cat.cid)"
+               [title]="cat.main_name"
+               [rootParams]="{
+               cid: cat.cid,
+               hasSort: false,
+               isCatPage: true
+               }"></super-tab>
+
+  </super-tabs>
+
+</ion-content>

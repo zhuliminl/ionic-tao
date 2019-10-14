@@ -1,0 +1,94 @@
+<ion-header  *ngIf="api.isIphoneX === true" class="iphone-x none"></ion-header>
+<ion-header  *ngIf="api.isIphoneOthers === true" class="iphone-others none"></ion-header>
+<ion-content  (ionScroll)="onScroll($event)">
+  <ion-fab [ngClass]="{'iphone-x': api.isIphoneX === true, 'iphone-others': api.isIphoneOthers}" top big [style.opacity]="1 - headerOpacity">
+    <button *ngIf="showBack === true" (click)="goBack()" class="back" ion-fab mini><ion-icon name="ios-arrow-back"></ion-icon></button>
+    <button (click)="openMore()" class="more" ion-fab mini><ion-icon name="md-more"></ion-icon></button>
+  </ion-fab>
+
+  <ion-fab [ngClass]="{'iphone-x': api.isIphoneX === true, 'iphone-others': api.isIphoneOthers}"  *ngIf="headerOpacity > 0" [style.opacity]="headerOpacity" class="fab2" top big [style.opacity]="headerOpacity">
+    <button *ngIf="showBack === true" (click)="goBack()" class="back" ion-fab mini><ion-icon name="ios-arrow-back"></ion-icon></button>
+    <div class="title">{{item.itemtitle}}</div>
+    <button (click)="openMore()" class="more" ion-fab mini><ion-icon name="md-more"></ion-icon></button>
+  </ion-fab>
+  <div class="detail-header" [style.height.px]="slideHeight-4">
+    <ion-slides [ngClass]="{'video': item.videoid && parseF(item.videoid) > 0}" [paginationType]="(item.videoid && parseF(item.videoid) > 0) ? 'bullets' : 'fraction'" [loop]="true" [pager]="true" [style.height.px]="slideHeight">
+      <ion-slide *ngIf="images.length < 1" [style.height.px]="slideHeight">
+        <img [src]="item.itempic"/>
+      </ion-slide>
+
+      <ion-slide *ngFor="let image of images" [style.height.px]="slideHeight">
+        <img [src]="image"/>
+      </ion-slide>
+    </ion-slides>
+
+    <!--<div class="image-pager">{{currentImageId}}/{{images.length || 1}}</div>-->
+    <div (click)="playVideo(item.videoid)" class="play-video" *ngIf="item.videoid && parseF(item.videoid) > 0"></div>
+  </div>
+  <div *ngIf="item.activity_type==='聚划算' && item.end_time !== '0'" class="juhuasuan">领券享折上折
+    <div class="dao"><span>{{endTime[0]}}</span>:<span>{{endTime[1]}}</span>:<span>{{endTime[2]}}</span>:<span>{{endTime[3]}}</span></div>
+  </div>
+  <div class="info-area">
+    <div class="title">{{item.itemtitle}}</div>
+    <div class="desc">{{item.itemdesc}}</div>
+    <div class="price-line">
+      <span class="red-price no-auto-after">{{item.itemendprice}}</span>
+      <div class="buy-count"><span class="orange-count">{{item.itemsale}}</span>人已买</div>
+      <div *ngIf="parseF(item.couponmoney) > 0" class="coupon-icon">¥{{item.couponmoney}}</div>
+    </div>
+  </div>
+
+  <div class="feature-line">
+    <div class="it">{{item.shoptype === 'B' ? '天猫': '淘宝'}}</div>
+    <div class="it brand" *ngIf="item.is_brand === 1">品牌</div>
+
+    <div class="it active" *ngIf="item.activity_type && item.activity_type !== '普通活动'">{{item.activity_type}}</div>
+    <div class="it isquality" *ngIf="item.isquality === 1">优选</div>
+    <div class="it is_explosion" *ngIf="item.is_explosion === 1">爆款</div>
+
+
+  </div>
+
+  <div class="detail-title" (click)="showDetailImages = !showDetailImages">
+    图文详情
+    <div class="float-notice open" *ngIf="showDetailImages === false">点击展开<ion-icon name="ios-arrow-forward"></ion-icon></div>
+    <div class="float-notice open" *ngIf="showDetailImages === true">点击收起<ion-icon name="ios-arrow-up"></ion-icon></div>
+  </div>
+
+  <div class="detail-desc" *ngIf="showDetailImages === true">
+    <img class="desc-img" [src]="image" *ngFor="let image of detailImages"/>
+  </div>
+
+  <div class="more-item">
+    <div class="title"><span class="icon-good"></span>精品推荐</div>
+    <div class="items">
+      <div class="item" (click)="openItem(ite)" *ngFor="let ite of moreItems">
+        <div class="inner">
+          <img [style.height.px]="itemImageWidth" [src]="ite.itempic"/>
+
+          <div class="tit">{{ite.itemshorttitle}}</div>
+          <div class="coupon">券 ¥ {{ite.couponmoney}}</div>
+          <div class="price-line">
+            <div class="price">¥ {{ite.itemendprice}}</div>
+            <div class="count">销量 {{ite.itemsale}}</div>
+          </div>
+          <div class="is-video" *ngIf="ite.videoid && parseF(ite.videoid) > 0" [style.height.px]="itemImageWidth"></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ion-fab *ngIf="showGoToTop === true" class="go-top" right bottom>
+    <button (click)="goToTop()" ion-fab><ion-icon name="md-arrow-round-up"></ion-icon></button>
+  </ion-fab>
+
+  <div class="notice" (click)="showNoticeAlert()">声明：本网站是一家中立的导购网站，网站中的商品信息均来自于互联网。如商品信息不同，可能是商品信息未及时更新引起，所有商品信息请以淘宝/天猫店铺内为准。网站提醒用户，购买商品前注意谨慎核实相关信息。如用户对商品/服务的标题 、价格、详情等任何信息有任何疑问的，请在购买前与商品所属店铺经营者沟通确认。网站存在海量商品信息，如用户发现商品中有任何违法/违规信息，请立即反馈给我们。</div>
+
+</ion-content>
+
+<ion-footer *ngIf="parseF(item.couponmoney) > 0" [ngClass]="{loading: highCouponLoading}">
+  <ion-toolbar>
+    <button class="get-coupon" (click)="goTaobao()">领券购买</button>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      分类
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="side-content">
+
+  <div class="f-items">
+    <div *ngFor="let cat of cats" class="item" (click)="setOn(cat.cid)" [ngClass]="{on: nowOn === cat.cid}">{{cat.main_name}}</div>
+  </div>
+
+</ion-content>
+<ion-content class="main-content" #mainContent>
+  <div class="sub-cats" *ngFor="let cat of cats" [ngClass]="{show: nowOn === cat.cid}">
+    <div class="next" *ngFor="let next of cat.data">
+
+      <div class="header"><span>{{next.next_name}}</span></div>
+      <div class="images">
+        <div class="image-item" *ngFor="let son of next.info" (click)="goItems(son.son_name, cat.cid)">
+          <img [defaultImage]="defaultImage" [lazyLoad]="son.imgurl" [scrollObservable]="mainContent.ionScroll">
+          <span>{{son.son_name}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

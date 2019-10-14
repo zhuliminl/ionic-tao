@@ -1,0 +1,44 @@
+
+<ion-header [style.height.px]="headerHeight">
+  <div class="float-bg-outer">
+    <div class="bg-left"></div>
+    <div class="bg-right"></div>
+  </div>
+  <div class="liner-bg" [style.height.px]="headerBgHeight"></div>
+  <div class="avatar"></div>
+</ion-header>
+
+<ion-content>
+  <div class="block">
+    <div class="item header">我的淘宝</div>
+    <div class="item taobao-items">
+      <div class="ti orders" (click)="goTaobaoOrder()">
+        淘宝订单
+      </div>
+      <div class="ti cart" (click)="goTaobaoCart()">
+        购物车
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="item icon feedback" (click)="goReport()">
+      我要反馈
+    </div>
+    <div class="item icon contact" (click)="relative()">
+      联系客服
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="item icon share" (click)="goShareApp()">
+      分享App
+    </div>
+    <div class="item icon update" (click)="checkUpdate()">
+      版本更新
+    </div>
+    <div class="item icon about" (click)="dependence()">
+      关于
+    </div>
+  </div>
+</ion-content>

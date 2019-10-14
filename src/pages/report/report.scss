@@ -1,0 +1,12 @@
+page-report {
+  ion-textarea{
+    textarea{
+      height: 120px;
+    }
+  }
+
+  button.submit{
+    margin-top: 50px;
+    background: linear-gradient(to right, #ff5a30, #fe2e24);
+  }
+}

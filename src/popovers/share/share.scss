@@ -1,0 +1,87 @@
+popover-share{
+  .share-page{
+    height: 200px;
+    .title{
+      height: 50px;
+      line-height: 50px;
+      font-size: 14px;
+      color: #333;
+      text-align: center;
+      position: relative;
+      display: block;
+      width: 80px;
+      margin: 0 auto;
+      &:before{
+        position: absolute;
+        content: '';
+        width: 30px;
+        height: 1px;
+        background: #ddd;
+        left: -30px;
+        bottom: 24px
+      }
+      &:after{
+        position: absolute;
+        content: '';
+        width: 30px;
+        height: 1px;
+        background: #ddd;
+        right: -30px;
+        bottom: 24px
+      }
+    }
+  }
+  .cancel{
+    height: 50px;
+    line-height: 49px;
+    border-top: 1px solid #efefef;
+    box-sizing: border-box;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    color: #333;
+    font-size: 14px;
+  }
+  .icons{
+    width: calc(100% - 30px);
+    height: 100px;
+    box-sizing: border-box;
+    font-size: 12px;
+    margin: 0 auto;
+
+    .icon{
+      display: inline-block;
+      width: 33.33%;
+      height: 100px;
+      float: left;
+      text-align: center;
+      line-height: 150px;
+      &.weixin{
+        background: url("../assets/imgs/share_weixin_session.png") no-repeat;
+        background-size: 42px;
+        background-position-x: center;
+        background-position-y: 12px;
+      }
+      &.weixin-timeline{
+        background: url("../assets/imgs/share_weixin_timeline.png") no-repeat;
+        background-size: 42px;
+        background-position-x: center;
+        background-position-y: 12px;
+      }
+      &.copy{
+        background: url("../assets/imgs/share_copy.png") no-repeat;
+        background-size: 42px;
+        background-position-x: center;
+        background-position-y: 12px;
+      }
+      &.copy-taokouling{
+        background: url("../assets/imgs/share_copy_taobao.png") no-repeat;
+        background-size: 42px;
+        background-position-x: center;
+        background-position-y: 12px;
+      }
+    }
+  }
+}

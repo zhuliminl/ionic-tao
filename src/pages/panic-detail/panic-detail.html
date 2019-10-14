@@ -1,0 +1,28 @@
+<!--
+  Generated template for the PanicDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<ion-content>
+  <img src="assets/imgs/quality.png" class="quality"/>
+  <div class="qiangs">
+    <div class="qiang" *ngFor="let item of items" (click)="openItem(item)">
+      <img class="itp" [src]="item.itempic">
+      <div class="cont">
+        <div class="tit" [ngClass]="{tm: item.shoptype === 'B'}">{{item.itemshorttitle}}</div>
+        <div class="short-itemdesc"> {{item.short_itemdesc}}</div>
+        <div class="itemsale">{{item.itemsale}}</div>
+        <div class="couponmoney">¥{{item.couponmoney}}</div>
+        <div class="itemendprice">{{item.itemendprice}}</div>
+        <div class="gogogo">领券</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blank" *ngIf="items.length < 1 && loaded === true">
+    好货马上就来~
+  </div>
+</ion-content>

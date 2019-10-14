@@ -1,0 +1,199 @@
+page-me {
+  ion-content{
+    background-color: #f5f5f5!important;
+    .scroll-content{
+      background: transparent!important;
+    }
+  }
+  ion-header{
+    width: 100%;
+    //#f8684d
+    position: relative;
+    .float-bg-outer{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      .bg-left, .bg-right{
+        position: absolute;
+        top: 0;
+        width: 50%;
+        height: 100%;
+      }
+      .bg-left{
+        left: 0;
+        background: linear-gradient(to right, #f8514b, #f8684d);
+
+      }
+      .bg-right{
+        right: 0;
+        background: linear-gradient(to right, #f8684d, #f94f5a);
+      }
+    }
+    .liner-bg{
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      background: url("../assets/imgs/mine_bg.png") center no-repeat;
+      background-size: 100%;
+    }
+    .avatar{
+      $size: 68px;
+      $small: 10px;
+      width: $size;
+      height: $size;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      position: absolute;
+      left: 50%;
+      margin-left: - $size / 2;
+      top: 50%;
+      margin-top: - $size / 2;
+      z-index: 1;
+      &:before{
+
+        content: '';
+        width: $size - $small;
+        height: $size - $small;
+        position: absolute;
+        left: $small / 2;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 50%;
+        top: $small / 2;
+        z-index: 2;
+      }
+      &:after{
+        position: absolute;
+        left: $small / 2;
+        top: $small / 2;
+        content: '优惠券';
+        color: #fe4a65;
+        font-size: 12px;
+        text-align: center;
+        line-height: $size - $small;
+        height: $size - $small;
+        width: $size - $small;
+        display: block;
+        z-index: 10;
+        font-weight: bold;
+        overflow: hidden;
+      }
+    }
+  }
+
+  .block{
+    width: 100%;
+    border-top: 8px solid #f5f5f5;
+    color: #333;
+    .item{
+      width: 100%;
+      height: 41px;
+      border-bottom: 1px solid #f5f5f5;
+      background: #fff;
+      line-height: 44px;
+      font-size: 13px;
+      padding: 0 10px;
+      box-sizing: border-box;
+      &:last-child{
+        height: 40px;
+        border-bottom: 0;
+      }
+
+      &.icon {
+        padding-left: 44px;
+        position: relative;
+        color: #666;
+        &:before{
+          position: absolute;
+          content: '';
+          left: 3px;
+          width: 40px;
+          height: 40px;
+          top: 0;
+        }
+        &.feedback{
+          &:before{
+            background: url("../assets/imgs/feedback-icon.png") center no-repeat;
+            background-size: 18px;
+          }
+        }
+
+        &.contact{
+          &:before{
+            background: url("../assets/imgs/contact-icon.png") center no-repeat;
+            background-size: 18px;
+          }
+        }
+
+        &.share{
+          &:before{
+            background: url("../assets/icon/share.png") center no-repeat;
+            background-size: 18px;
+          }
+        }
+
+        &.update{
+          &:before{
+            background: url("../assets/imgs/update-icon.png") center no-repeat;
+            background-size: 18px;
+          }
+        }
+
+        &.about{
+          &:before{
+            background: url("../assets/imgs/about-icon.png") center no-repeat;
+            background-size: 18px;
+          }
+        }
+
+        &:after{
+          position: absolute;
+          content: '';
+          background: url("../assets/imgs/arrow-right-icon.png") center no-repeat;
+          background-size: 18px;
+          width: 40px;
+          height: 40px;
+          right: 2px;
+          top: 0;
+        }
+
+      }
+    }
+
+
+    .header{
+      height: 33px;
+      line-height: 32px;
+
+    }
+    .taobao-items{
+      height: 68px!important;
+      padding: 8px 10px;
+      .ti{
+        width: 50%;
+        height: 52px;
+        border-right: 1px solid #f5f5f5;
+        display: inline-block;
+        float: left;
+        text-align: center;
+        line-height: 82px;
+        font-size: 12px;
+        &:last-child{
+          border-right: 0;
+        }
+        &.orders{
+          background: url("../assets/imgs/order-icon.png") no-repeat;
+          background-size: 22px;
+          background-position: center 6px ;
+        }
+        &.cart{
+          background: url("../assets/imgs/cart-icon.png") no-repeat;
+          background-size: 20px;
+          background-position: center 6px ;
+        }
+      }
+    }
+  }
+}

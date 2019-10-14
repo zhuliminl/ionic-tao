@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      意见反馈
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+
+    <ion-item>
+      <ion-textarea placeholder="请在此输入您的反馈意见"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" stacked>联系方式</ion-label>
+      <ion-input type="Text" placeholder="手机号或QQ号或邮箱" [clearInput]="true"></ion-input>
+    </ion-item>
+    <button (click)="submitReport()" class="submit" ion-button full>确定反馈</button>
+  </ion-list>
+</ion-content>

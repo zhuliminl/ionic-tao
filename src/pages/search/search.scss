@@ -1,0 +1,115 @@
+page-search {
+  ion-navbar{
+    .toolbar-background{
+      background: #fff;
+    }
+    .title{
+      color: #fe4a65;
+    }
+    .toolbar-title{
+      color: #fe4a65!important;
+    }
+    .button-inner{
+      ion-icon{
+        color: #fe4a65!important;
+      }
+    }
+    .search-all{
+      position: absolute;
+      color: #fe4a65;
+      font-size: 13px;
+      right: 0;
+      top: 50%;
+      margin-top: -20px;
+      width: 80px;
+      text-align: center;
+      height: 40px;
+      line-height: 40px;
+      &.iphone-x{
+        margin-top: 3px;
+      }
+      &.iphone-others{
+        margin-top: -8px;
+      }
+    }
+  }
+  input.search{
+    width: calc(100% - 80px);
+    height: 36px;
+    background: #efefef;
+    border:0;
+    border-radius: 3px;
+    box-sizing: border-box;
+    padding: 0 6px;
+    color: #444;
+    caret-color:#444;
+    text-shadow: none;
+    -webkit-text-fill-color: initial;
+    &::placeholder {
+      color: #999;
+    }
+  }
+
+  .hot-area, .histories-area{
+    width: 100%;
+    height: auto;
+    padding: 8px 0;
+    .header{
+      height: 30px;
+      line-height: 30px;
+      font-size: 13px;
+      color: #888;
+    }
+    .items{
+      font-size: 12px;
+      width: 100%;
+      height: auto;
+      line-height: 30px;
+      .item{
+        display: inline-block;
+        background: #f5f5f5;
+        padding: 0 6px;
+        height: 24px;
+        line-height: 24px;
+        margin-right: 8px;
+        color: #555;
+        border-radius: 2px;
+      }
+    }
+  }
+
+  button.do-search{
+    position: absolute;
+    right: 10px;
+    height: 36px;
+    background: #fe4a65;
+    color: #fff;
+    width: 70px;
+    border-radius: 3px;
+    font-size: 13px;
+    border: 0;
+  }
+  .inner{
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 10px;
+    height: auto;
+  }
+
+  .clear-histories{
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    width: 100%;
+    font-size: 14px;
+    color: #777;
+    ion-icon{
+      color: #fe4a65;
+      padding-right: 4px;
+      position: relative;
+      bottom: -2px;
+      font-size: 20px;
+    }
+  }
+}

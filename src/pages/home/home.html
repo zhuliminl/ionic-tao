@@ -1,0 +1,108 @@
+
+
+<ion-content (ionScroll)="onScroll($event)">
+  <ion-refresher [pullMin]="70" (ionRefresh)="doRefresh($event)">
+    <div class="refresh-loading"><img src="assets/imgs/1123.gif"/></div>
+    <!--<ion-refresher-content>-->
+      <!--<div>dwqdwq</div>-->
+    <!--</ion-refresher-content>-->
+  </ion-refresher>
+
+
+  <swiper class="slides" [config]="headerSlidesConfig" [style.height.px]="slideHeight">
+    <img (click)="goSubject(sub.id, sub.name)" *ngFor="let sub of api.subjects" [src]="'http://img.haodanku.com/' + sub.app_image" [style.height.px]="slideHeight"/>
+  </swiper>
+
+
+  <!--<ion-slides  [loop]="true" [pager]="true" [style.height.px]="slideHeight">-->
+
+    <!--<ion-slide *ngFor="let sub of subjects" (click)="goSubject(sub.id, sub.name)">-->
+      <!--<img [src]="'http://img.haodanku.com/' + sub.app_image" [style.height.px]="slideHeight"/>-->
+    <!--</ion-slide>-->
+
+  <!--</ion-slides>-->
+
+  <div class="icon-area" [style.height.px]="iconItemHeight">
+    <div (click)="goTodayNew()" class="icon-item" [style.height.px]="iconItemHeight">
+      <img src="assets/imgs/home-icon-1.png"/>
+      <span>今日上新</span>
+    </div>
+
+    <div (click)="go99()" class="icon-item" [style.height.px]="iconItemHeight">
+      <img src="assets/imgs/home-icon-2.png"/>
+      <span>9.9包邮</span>
+    </div>
+
+    <div (click)="goVideo()" class="icon-item" [style.height.px]="iconItemHeight">
+      <img src="assets/imgs/home-icon-3.png"/>
+      <span>视频购物</span>
+    </div>
+
+    <div (click)="goHotBrand()" class="icon-item" [style.height.px]="iconItemHeight">
+      <img src="assets/imgs/home-icon-4.png"/>
+      <span>品牌爆款</span>
+    </div>
+  </div>
+
+  <div class="old-school-style-banner" (click)="goTaoQiangGou()">
+    <img src="assets/imgs/home-banner1.jpg">
+  </div>
+
+  <div class="hot-area">
+    <div class="header">今日爆款</div>
+    <ion-slides slidesPerView="4" [style.height.px]="hotItemHeight">
+
+      <ion-slide (click)="openItem(item)" *ngFor="let item of hotItems; let i = index" [style.height.px]="hotItemHeight" >
+
+        <img *ngIf="i > (preSlidesloadCount - 1)" [defaultImage]="defaultImage"
+             [lazyLoad]="getImage(item.itempic)"
+             [style.height.px]="hotItemImgHeight"
+             [scrollObservable]="hotSlides.ionSlideWillChange"/>
+        <img *ngIf="i <= (preSlidesloadCount - 1)"
+             [src]="getImage(item.itempic)"
+             [style.height.px]="hotItemImgHeight"
+             />
+
+        <div class="title">{{item.itemshorttitle}}</div>
+        <div class="text-price">
+          <div class="price">原价¥{{item.itemprice}}</div>
+          <div class="price red">券后¥{{item.itemendprice}}</div>
+        </div>
+        <div class="float-coupon">券 {{item.couponmoney}}</div>
+
+      </ion-slide>
+
+    </ion-slides>
+  </div>
+
+  <ul class="good-items">
+    <li class="item" (click)="openItem(item)" *ngFor="let item of items; let i = index">
+      <div class="inner">
+        <img class="lazy" *ngIf="i > (preloadCount - 1)"
+             [style.height.px]="itemImageWidth"
+             [defaultImage]="defaultImage"
+             [lazyLoad]="getImage(item.itempic)"
+             [scrollObservable]="content.ionScroll"/>
+        <img *ngIf="i <= (preloadCount - 1)" [style.height.px]="itemImageWidth" [src]="getImage(item.itempic)"/>
+        <div class="title">{{item.itemshorttitle}}</div>
+        <div class="coupon">券 ¥ {{item.couponmoney}}</div>
+        <div class="price-line">
+          <div class="price">¥ {{item.itemendprice}}</div>
+          <div class="count">销量 {{item.itemsale}}</div>
+        </div>
+        <span class="juhuasuan" *ngIf="item.activity_type==='聚划算'"></span>
+        <div class="is-video" *ngIf="item.videoid && item.videoid !== '0'" [style.height.px]="itemImageWidth"></div>
+      </div>
+
+    </li>
+  </ul>
+
+
+  <ion-infinite-scroll (ionInfinite)="$event.waitFor(doInfinite())">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+  <ion-fab *ngIf="showGoToTop === true" class="go-top-main" right bottom>
+    <button (click)="goToTop()" ion-fab><ion-icon name="md-arrow-round-up"></ion-icon></button>
+  </ion-fab>
+</ion-content>

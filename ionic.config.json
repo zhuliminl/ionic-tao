@@ -1,0 +1,7 @@
+{
+  "name": "ShengQianJia",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

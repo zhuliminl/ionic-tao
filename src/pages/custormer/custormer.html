@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      联系客服
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="relative-way">
+  <div class="all-relative">
+    <button  class="weixin commoncss" >微信：{{wechat}}</button>
+    <button  class="qq commoncss" >QQ：{{qq}}</button>
+    <button  class="mphone commoncss" >电话：{{tel}}</button>
+  </div>
+  <div  class="question" [innerHtml]="question">
+
+  </div>
+  <div class="job-time" *ngIf="show_time" [innerHtml]="time">
+  </div>
+</ion-content>

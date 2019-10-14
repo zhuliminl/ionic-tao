@@ -1,0 +1,66 @@
+<ion-header *ngIf="hasHeader === true">
+  <ion-navbar>
+    <ion-title>{{headerTitle}}</ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content (ionScroll)="onScroll($event)">
+  <ion-fab *ngIf="hasSort === true" class="sort" top left>
+    <button ion-fab></button>
+    <div class="tab-header">
+      <div class="item" [ngClass]="{on: nowTab === 1}" (click)="doSort(navParams.data.defaultSort, 1)">人气</div>
+      <div class="item" [ngClass]="{on: nowTab === 2}" (click)="doSort(navParams.data.sort2 || '/sort/0', 2)">最新</div>
+      <div class="item" [ngClass]="{on: nowTab === 3}" (click)="doSort(navParams.data.sort3 || '/sort/4', 3)">销量</div>
+      <div class="item" [ngClass]="{on: nowTab === 4}" (click)="doSort(navParams.data.sort4 || '/sort/1', 4, navParams.data.sort5 || '/sort/2')">
+        价格
+        <div class="icon-i" *ngIf="nowSort !== (navParams.data.sort4 || '/sort/1') && nowSort !== (navParams.data.sort5 || '/sort/2')">
+          <img src="assets/imgs/updown-icon.png"/>
+        </div>
+        <div class="icon-i" *ngIf="nowSort === (navParams.data.sort5 || '/sort/2')"><img src="assets/imgs/up-ud-icon.png"/></div>
+        <div class="icon-i" *ngIf="nowSort === (navParams.data.sort4 || '/sort/1')"><img src="assets/imgs/down-ud-icon.png"/></div>
+      </div>
+    </div>
+  </ion-fab>
+
+  <ion-refresher [pullMin]="70" (ionRefresh)="doRefresh($event)" [ngClass]="{'has-header': hasHeader === true && hasSort === true, 'no-top': this.navParams.data.isCatPage === true}">
+    <div class="refresh-loading"><img src="assets/imgs/1123.gif"/></div>
+    <!--<ion-refresher-content>-->
+    <!--<div>dwqdwq</div>-->
+    <!--</ion-refresher-content>-->
+  </ion-refresher>
+  <div class="no-use-header" *ngIf="hasSort === true"></div>
+  <ul class="good-items">
+    <li class="item" (click)="openItem(item)" *ngFor="let item of items; let i = index">
+      <div class="inner">
+        <img class="lazy" *ngIf="i > (preloadCount - 1)" [style.height.px]="itemImageWidth" [defaultImage]="defaultImage" [lazyLoad]="getImage(item.itempic)" [scrollObservable]="content.ionScroll"/>
+        <img *ngIf="i <= (preloadCount - 1)" [style.height.px]="itemImageWidth" [src]="getImage(item.itempic)"/>
+      
+        <!-- <img [style.height.px]="itemImageWidth"  [attr.data-normal]="getImage(item.itempic)"/> -->
+
+        <div class="title">{{item.itemshorttitle}}</div>
+        <div class="coupon" *ngIf="item.couponmoney !== '0'">券 ¥ {{item.couponmoney}}</div>
+        <div class="price-line">
+          <div class="price no-auto-after" [ngClass]="{after: item.couponmoney !== '0' > 0}">¥ {{item.itemendprice}}</div>
+          <div class="count">销量 {{item.itemsale}}</div>
+        </div>
+        <span class="juhuasuan" *ngIf="item.activity_type==='聚划算'"></span>
+        <div class="is-video" *ngIf="item.videoid && item.videoid !== '0'" [style.height.px]="itemImageWidth"></div>
+      </div>
+
+    </li>
+  </ul>
+
+  <div class="not-found" *ngIf="show404 === true && items.length <= 0">
+    <img src="assets/imgs/mo_search_bg@2x.png">
+    <div class="text404">{{navParams.data.text404 || '没有找到哦'}}</div>
+  </div>
+
+  <ion-infinite-scroll *ngIf="hasMore === true" (ionInfinite)="$event.waitFor(doInfinite())">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+  <ion-fab *ngIf="showGoToTop === true" class="go-top-main" right bottom>
+    <button (click)="goToTop()" ion-fab><ion-icon name="md-arrow-round-up"></ion-icon></button>
+  </ion-fab>
+</ion-content>

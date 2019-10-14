@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      寻找独家优惠
+    </ion-title>
+    <div class="search-all" [ngClass]="{'iphone-x': api.isIphoneX, 'iphone-others': api.isIphoneOthers}" (click)="goSearchAll()">搜全网</div>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <div class="inner">
+    <input id="search" type="text" class="search" #searchInput placeholder="请输入关键词" [(ngModel)]="searchText"/>
+    <button class="do-search" (click)="readySearch()">搜好券</button>
+    <div class="hot-area">
+      <div class="header">热门搜索</div>
+      <div class="items">
+        <div *ngFor="let keyword of hotKeywords" class="item" (click)="doSearch(keyword.keyword)">
+          {{keyword.keyword}}
+        </div>
+      </div>
+    </div>
+
+    <div class="histories-area" *ngIf="histories.length > 0">
+      <div class="header">历史搜索</div>
+      <div class="items">
+        <div *ngFor="let keyword of _.reverse(histories)" class="item" (click)="doSearch(keyword)">
+          {{keyword}}
+        </div>
+      </div>
+      <div (click)="clearHistories()" class="clear-histories"><ion-icon name="ios-trash-outline"></ion-icon>清除搜索记录</div>
+    </div>
+  </div>
+</ion-content>

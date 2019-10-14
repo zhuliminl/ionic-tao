@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      搜全网
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="inner">
+    <input id="search" type="text" class="search" #searchInput placeholder="请输入关键词" [(ngModel)]="searchText"/>
+    <button class="do-search" (click)="readySearch()">搜全网</button>
+
+    <div class="notice">
+      <img src="assets/imgs/search-all-notice.jpg"/>
+      <div class="text">
+        <h3>搜索方法：</h3>
+        <p>
+          1、打开手机淘宝/天猫，长按拷贝宝贝标题<br/>
+          2、将商品标题粘贴到搜索框中进行搜索
+        </p>
+
+        <p class="small">
+          “搜全网”功能中的的商品信息均来自于互联网，准确的商品信息请与商品所属店铺经营者沟通确认。
+        </p>
+      </div>
+
+    </div>
+  </div>
+</ion-content>

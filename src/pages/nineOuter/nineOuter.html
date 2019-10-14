@@ -1,0 +1,13 @@
+
+<ion-header  *ngIf="api.isIphoneX === true" class="iphone-x white"></ion-header>
+<ion-header  *ngIf="api.isIphoneOthers === true" class="iphone-others white"></ion-header>
+
+
+<ion-content no-bounce>
+  <button class="back" (click)="goBack()"><ion-icon name="ios-arrow-back"></ion-icon></button>
+  <super-tabs class="two">
+    <super-tab [root]="page1" title="9.9包邮" [rootParams]="{apiParams: 'price_max/10', defaultSort: '/sort/5/sale_min/10000'}"></super-tab>
+    <super-tab [root]="page2" title="19.9包邮" [rootParams]="{apiParams: 'price_max/19.9', defaultSort: '/sort/5/sale_min/5000'}"></super-tab>
+  </super-tabs>
+
+</ion-content>

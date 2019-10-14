@@ -1,0 +1,518 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+ion-navbar{
+  .toolbar-background{
+    background: linear-gradient(to right, #ff5a30, #fe2e24);
+  }
+
+}
+
+ion-header.iphone-x{
+  height: 36px;
+  background: linear-gradient(to right, #ff5a30, #fe2e24);
+  &.white{
+    background: #fff;
+  }
+  &.none{
+    height: 0;
+  }
+}
+
+ion-header.iphone-others{
+  height: 16px;
+  background: linear-gradient(to right, #ff5a30, #fe2e24);
+  &.white{
+    background: #fff;
+  }
+  &.none{
+    height: 0;
+  }
+}
+
+
+.refresh-loading{
+  position: relative;
+  height: 70px;
+  width: 100%;
+  img{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    display: block;
+    left: 50%;
+    margin-left: -30px;
+    top: 10px;
+  }
+}
+
+.has-refresher > .scroll-content{
+  border-top:0!important;
+}
+.toolbar-background{
+  border-width: 0!important;
+}
+ion-popover.right-top{
+  .popover-content{
+    width: 100px!important;
+    right: 10px!important;
+    left: auto!important;
+    top: 54px!important;
+
+
+    .po-items{
+      .ite{
+        font-size: 13px;
+        color: #444444;
+        width: 100%;
+        height: 36px;
+        line-height: 36px;
+        text-align: center;
+        border-bottom: 1px solid #efefef;
+        &:last-child{
+          border-bottom: 0;
+        }
+      }
+
+
+    }
+  }
+
+  &.iphone-x{
+    .popover-content{
+      top: 90px!important;
+    }
+  }
+
+  &.iphone-others{
+    .popover-content{
+      top: 68px!important;
+    }
+  }
+}
+
+ion-popover.share{
+  .popover-content{
+    width: 100%!important;
+    right: 0!important;
+    left: 0!important;
+    top: auto!important;
+    bottom: 0 !important;
+
+  }
+}
+
+
+ul.good-items{
+  padding: 0;
+  margin: 0;
+  li.item{
+    width: 50%;
+    display: inline-block;
+    padding-bottom: 6px;
+    box-sizing: border-box;
+
+    .juhuasuan{
+      position: absolute;
+      left: 2px;
+      bottom: 60px;
+      width: 20px;
+      height: 20px;
+      &:before{
+        position: absolute;
+        left: 0;
+        top: 0;
+        content: '';
+        background: url("../assets/imgs/juhuasuan-small-icon.png") center no-repeat;
+        width: 20px;
+        height: 20px;
+        background-size: 20px;
+      }
+    }
+    .price-line{
+      width: 100%;
+      height: 26px;
+      box-sizing: border-box;
+      padding-left: 4px;
+      position: relative;
+      .price{
+        position: relative;
+        line-height: 16px;
+        color: #fe2e24;
+        font-size: 16px;
+        display: inline-block;
+
+        &:after{
+          content: '券后';
+          position: absolute;
+          color: #bbb;
+          font-size: 12px;
+          line-height: 12px;
+          width: 30px;
+          height: 12px;
+          bottom: 0;
+          right: -30px;
+          text-align: left;
+          transform: scale(0.8);
+        }
+        &.no-auto-after{
+          &:after{
+            content: none;
+          }
+        }
+
+        &.no-auto-after.after{
+          &:after{
+            content: '券后';
+          }
+        }
+      }
+      .count{
+        position: absolute;
+        bottom: 8px;
+        display: inline-block;
+        text-align: right;
+        right: 0;
+        color: #888;
+        font-size: 12px;
+        transform: scale(0.8);
+      }
+    }
+    .coupon{
+      position: absolute;
+      background: rgba(255,90,48,0.8);
+      right: 0;
+      bottom: 60px;
+      padding: 0 4px;
+      height: 16px;
+      border-bottom-right-radius: 3px;
+      border-top-right-radius: 3px;
+      font-size: 12px;
+      color: #fff;
+      line-height: 16px;
+      &:before{
+        position: absolute;
+        display: block;
+        width: 34px;
+        text-align: center;
+        left: -34px;
+        font-size: 12px;
+        height: 16px;
+        line-height: 16px;
+        bottom: 0;
+        font-size-adjust: 0.5;
+        content: 'NEW';
+        background: rgba(0,0,0,0.4);
+        border-bottom-left-radius: 3px;
+        border-top-left-radius: 3px;
+      }
+    }
+    img{
+      width: 100%;
+    }
+    img.lazy{
+      width: 100%;
+      opacity: 0;
+      transition: opacity 1s;
+    }
+    img.lazy.ng-lazyloaded{
+      opacity: 1;
+    }
+    .title{
+      height: 30px;
+      line-height: 30px;
+      font-size: 12px;
+      width: 100%;
+      box-sizing: border-box;
+      padding-left: 3px;
+      overflow: hidden;
+    }
+    .inner{
+      background: #fff;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+    &:nth-child(odd){
+      padding-right: 3px;
+    }
+    &:nth-child(even){
+      padding-left: 3px;
+    }
+
+    .is-video{
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: url("../assets/imgs/video-play-icon.png") center no-repeat;
+      background-size: 60px auto;
+
+    }
+  }
+}
+
+ion-fab.go-top-main{
+  button.fab{
+    background: rgba(255, 255, 255, 0.8);
+    color: #777;
+    border: 1px solid #ccc;
+    width: 46px;
+    height: 46px;
+    &.activated{
+      background: rgba(255, 255, 255, 0.6);
+    }
+  }
+}
+super-tabs:not([no-shadow]) > super-tabs-toolbar > ion-toolbar.toolbar::after, super-tabs:not([no-shadow]) > super-tabs-toolbar > ion-toolbar.toolbar::before{
+  background-image: none!important;
+}
+
+super-tabs.two{
+  .toolbar-background{
+    background: #fff;
+  }
+  .tab-buttons-container{
+    .indicator{
+      display: none;
+      //background-color:#fe4a65!important;
+      //height: 30px!important;
+      //bottom: 10px!important;
+      //border-radius: 15px;
+    }
+    .title.text{
+      z-index: 10;
+      position: relative;
+    }
+  }
+  .tab-buttons{
+    position: relative;
+    &:after{
+      position: absolute;
+      content: '';
+      width: 238px;
+      height: 30px;
+      border: 1px solid #fe4a65;
+      border-radius: 16px;
+    }
+  }
+  super-tab-button{
+    color: #fe4a65!important;
+    position: relative;
+    &.selected{
+      .title.text{
+        color: #fff!important;
+      }
+      &:after{
+        width: 100%;
+        position: absolute;
+        z-index: 2;
+        content: '';
+        height: 30px;
+        background: #fe4a65;
+        left: 0;
+        top:9px;
+        border-radius: 15px;
+      }
+    }
+
+  }
+  super-tabs-toolbar{
+    width: 240px;
+    margin: 0 auto;
+  }
+  //super-tabs-toolbar[ng-reflect-selected-tab="0"]{
+  //  .indicator{
+  //    border-top-left-radius: 10px;
+  //    border-bottom-left-radius: 10px;
+  //  }
+  //}
+  //super-tabs-toolbar[ng-reflect-selected-tab="1"]{
+  //  .indicator{
+  //    border-top-right-radius: 10px;
+  //    border-bottom-right-radius: 10px;
+  //  }
+  //}
+}
+
+ion-fab.sort{
+  width: 100%;
+  left: 0;
+  top: 0;
+  height: 41px;
+  button[ion-fab]{
+    display: none;
+  }
+}
+
+ion-header{
+  ion-title{
+    .toolbar-title{
+      color: #fff!important;
+    }
+  }
+  ion-navbar{
+    button.back-button{
+      span.back-button-text{
+        color: transparent;
+      }
+      ion-icon{
+        color: #fff;
+      }
+    }
+
+  }
+}
+.toolbar-title-ios, .toolbar-title-md{
+  font-size: 1.6rem!important;
+}
+
+.swiper-pagination-bullet-active{
+  background: #fe4a65!important;
+}
+ion-tabs.main.tabs-md{
+  .show-tabbar{
+    height: 53px;
+    .tab-button{
+      min-height: 53px;
+      height: 53px;
+    }
+    .tab-button-text{
+      margin-top: 2px;
+      font-size: 12px;
+    }
+  }
+}
+
+@keyframes bounceInDown {
+
+  from {
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.bounceInDown {
+  animation-name: bounceInDown;
+}
+
+.header-md::after{
+  content: none;
+}
+
+ion-tabs.main{
+  $icons: 'home','qiang','categories','juhuasuan','me';
+
+  ion-icon{
+    //&:before{
+    //  content: '';
+    //}
+    //&.tab-button-icon{
+    //  width: 24px;
+    //  height: 24px;
+    //}
+    //&[aria-label="main tab-home"], &[ng-reflect-name="main-tab-home"], &.ion-md-main-tab-home{
+    //  background: url("../assets/icon/home-icon.png") center no-repeat;
+    //  background-size:24px;
+    //  &[ng-reflect-is-active="true"]{
+    //    background: url("../assets/icon/home-icon-on.png") center no-repeat;
+    //    background-size:24px;
+    //  }
+    //}
+    //
+    //&[aria-label="main tab-99"], &[ng-reflect-name="main-tab-99"], &.ion-md-main-tab-99{
+    //  background: url("../assets/icon/99-icon.png") center no-repeat;
+    //  background-size:24px;
+    //  &[ng-reflect-is-active="true"]{
+    //    background: url("../assets/icon/99-icon-on.png") center no-repeat;
+    //    background-size:24px;
+    //  }
+    //}
+    //
+    //&[aria-label="main tab-categories"], &[ng-reflect-name="main-tab-categories"], &.ion-md-main-tab-categories{
+    //  background: url("../assets/icon/categories-icon.png") center no-repeat;
+    //  background-size:24px;
+    //  &[ng-reflect-is-active="true"]{
+    //    background: url("../assets/icon/categories-icon-on.png") center no-repeat;
+    //    background-size:24px;
+    //  }
+    //}
+    //
+    //&[aria-label="main tab-juhuasuan"], &[ng-reflect-name="main-tab-juhuasuan"], &.ion-md-main-tab-juhuasuan{
+    //  background: url("../assets/icon/juhuasuan-icon.png") center no-repeat;
+    //  background-size:24px;
+    //  &[ng-reflect-is-active="true"]{
+    //    background: url("../assets/icon/juhuasuan-icon-on.png") center no-repeat;
+    //    background-size:24px;
+    //  }
+    //}
+    //
+    //&[aria-label="main tab-me"], &[ng-reflect-name="main-tab-me"], &.ion-md-main-tab-me{
+    //  background: url("../assets/icon/me-icon.png") center no-repeat;
+    //  background-size:24px;
+    //  &[ng-reflect-is-active="true"]{
+    //    background: url("../assets/icon/me-icon-on.png") center no-repeat;
+    //    background-size:24px;
+    //  }
+    //}
+
+    width: 24px;
+    height: 24px;
+
+    @each $icon in $icons{
+      &[class*="main-tab-#{$icon}"]{
+        background: url("../assets/icon/#{$icon}-icon.png") center no-repeat;
+        background-size:24px;
+        &:before{
+          content: '';
+        }
+      }
+    }
+  }
+  a.tab-button[aria-selected="true"]{
+    span.tab-button-text{
+      color: #fe4a65;
+    }
+    ion-icon{
+      @each $icon in $icons{
+        &[ng-reflect-name="main-tab-#{$icon}"], &[aria-label="main tab-#{$icon}"]{
+          background: url("../assets/icon/#{$icon}-icon-on.png") center no-repeat;
+          background-size:24px;
+          &:before{
+            content: '';
+          }
+        }
+      }
+    }
+
+  }
+  &.tabs-md{
+    .tab-button[aria-selected=true]{
+      .tab-button-text{
+        transform: none;
+      }
+      .tab-button-icon{
+        transform: none;
+      }
+    }
+
+  }
+}

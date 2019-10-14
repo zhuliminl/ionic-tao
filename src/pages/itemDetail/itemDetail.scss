@@ -1,0 +1,583 @@
+page-item-detail {
+  ion-header{
+    position: relative;
+  }
+  button.back, button.more{
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    z-index: 999;
+    -webkit-box-shadow:none;
+    box-shadow: none;
+    margin: 0!important;
+      ion-icon{
+      font-size: 24px;
+      color: #fff;
+    }
+    &.activated{
+      background: rgba(0,0,0,0.5);
+    }
+  }
+
+  button.more{
+    left: auto;
+    right: 6px;
+  }
+
+  .swiper-pagination{
+    width: 36px;
+    height: 36px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 50%;
+    z-index: 999;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    color: #fff;
+    font-size: 12px;
+    line-height: 36px;
+    text-align: center;
+    left: auto;
+  }
+
+  ion-slides.video{
+    .swiper-pagination{
+      border-radius: 0;
+      background: transparent;
+      button.swiper-pagination-bullet{
+        box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+      }
+    }
+  }
+  .play-video{
+    width: 46px;
+    height: 46px;
+    //background: rgba(0,0,0,0.3);
+    border-radius: 50%;
+    z-index: 999;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    color: #fff;
+    font-size: 12px;
+    line-height: 46px;
+    text-align: center;
+    //box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    background: url("../assets/imgs/video-play-icon.png") center no-repeat;
+    background-size: 60px auto;
+  }
+  .detail-desc{
+    background-color: #fff;
+    min-height: 5rem;
+    padding-top: 0.12rem;
+  }
+  .detail-desc .desc-img {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .detail-header{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  ion-fab[big]{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    z-index: 998;
+  }
+
+  ion-fab.fab2{
+    background: #fff;
+    z-index: 999;
+    button.back, button.more{
+      background: transparent;
+      ion-icon{
+        color: #666;
+      }
+
+    }
+    .title{
+      height: 50px;
+      width: 100%;
+      box-sizing: border-box;
+      padding:0 50px;
+      line-height: 50px;
+      overflow: hidden;
+      text-align: center;
+      color: #666;
+      font-size: 13px;
+    }
+  }
+
+  .info-area{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 6px 10px;
+    .title{
+      color: #444;
+      font-size: 14px;
+      height: 26px;
+      line-height: 26px;
+      overflow: hidden;
+      width: 100%;
+    }
+    .desc{
+      padding-top: 4px;
+      width: 100%;
+      font-size: 12px;
+      color: #fe4a65;
+      line-height: 14px;
+    }
+    .price-line{
+      padding: 8px 0 0 0;
+      line-height: 20px;
+      position: relative;
+      span.red-price{
+        color: #fe2e24;
+        padding-left: 8px;
+        position: relative;
+        display: inline-block;
+        font-size: 16px;
+        &:before{
+          color: #fe2e24;
+          content: '¥';
+          text-align: left;
+          position: absolute;
+          width: 8px;
+          bottom: -1px;
+          height: 20px;
+          line-height: 20px;
+          font-size: 12px;
+          left: 0;
+        }
+        &:after{
+          content: '券后价';
+          color: #ccc;
+          font-size: 12px;
+          position: absolute;
+          width: 40px;
+          right: -43px;
+          bottom: -1px;
+        }
+
+        &.no-auto-after{
+          &:after{
+            content: none;
+          }
+        }
+
+        &.no-auto-after.after{
+          &:after{
+            content: '券后价';
+          }
+        }
+      }
+      .coupon-icon{
+        position: absolute;
+        left: 148px;
+        top: 8px;
+        font-size: 12px;
+        display: inline-block;
+        height: 20px;
+        line-height: 18px;
+        border: 1px solid #eb4f38;
+        border-left: 0;
+        padding:0 6px;
+        color: #eb4f38;
+        &:before{
+          content:'';
+          position: absolute;
+          left: -31px;
+          top: -6px;
+          width: 30px;
+          height: 30px;
+          display: inline-block;
+          background: url("../assets/imgs/coupon-icon.png") center no-repeat;
+          background-size: 36px;
+        }
+      }
+    }
+    .buy-count{
+      position: absolute;
+      height: 20px;
+      line-height: 20px;
+      color: #aaa;
+      right: 0;
+      bottom: 0;
+      font-size: 12px;
+      .orange-count{
+        color: #f53d3d;
+      }
+      &:before{
+        content: '';
+        width: 20px;
+        height: 20px;
+        background: url('../assets/imgs/user-buy.png') center no-repeat;
+        background-size: 14px;
+        position: absolute;
+        left: -21px;
+      }
+    }
+  }
+  .detail-title{
+    height: 40px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 10px;
+    color: #666;
+    border-top: 1px solid #efefef;
+    line-height: 40px;
+    position: relative;
+    ion-icon{
+      margin-left: 2px;
+      position: absolute;
+      right: -2px;
+      height: 40px;
+      line-height: 40px;
+    }
+    .float-notice{
+      padding-right: 12px;
+      position: absolute;
+      right: 12px;
+      top:0;
+      height: 40px;
+      line-height: 40px;
+      font-size: 12px;
+    }
+  }
+
+  .more-item{
+    border-top: 8px solid #efefef;
+    .title{
+      width: 90px;
+      height: 32px;
+      line-height: 32px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 12px;
+      color: #444444;
+      position: relative;
+      &:before{
+        position: absolute;
+        content: '';
+        width: 30px;
+        height: 1px;
+        background: #efefef;
+        left: -30px;
+        bottom: 16px
+      }
+      &:after{
+        position: absolute;
+        content: '';
+        width: 30px;
+        height: 1px;
+        background: #efefef;
+        right: -30px;
+        bottom: 16px
+      }
+    }
+    .items{
+      background: #efefef;
+    }
+    .item{
+      display: inline-block;
+      width: 50%;
+      padding-bottom: 6px;
+      box-sizing: border-box;
+      .inner{
+        background: #fff;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+      }
+      &:nth-child(odd){
+        padding-right: 3px;
+      }
+      &:nth-child(even){
+        padding-left: 3px;
+      }
+
+      .price-line{
+        width: 100%;
+        height: 26px;
+        box-sizing: border-box;
+        padding-left: 4px;
+        position: relative;
+        .price{
+          position: relative;
+          line-height: 16px;
+          color: #fe2e24;
+          font-size: 16px;
+          display: inline-block;
+          &:after{
+            content: '券后';
+            position: absolute;
+            color: #bbb;
+            font-size: 12px;
+            line-height: 12px;
+            width: 30px;
+            height: 12px;
+            bottom: 0;
+            right: -33px;
+            text-align: left;
+          }
+        }
+        .count{
+          position: absolute;
+          bottom: 8px;
+          display: inline-block;
+          text-align: right;
+          right: 6px;
+          color: #888;
+          font-size: 12px;
+        }
+      }
+      .coupon{
+        position: absolute;
+        background: rgba(255,90,48,0.8);
+        right: 0;
+        bottom: 60px;
+        padding: 0 4px;
+        height: 16px;
+        border-bottom-right-radius: 3px;
+        border-top-right-radius: 3px;
+        font-size: 12px;
+        color: #fff;
+        line-height: 16px;
+        &:before{
+          position: absolute;
+          display: block;
+          width: 34px;
+          text-align: center;
+          left: -34px;
+          font-size: 12px;
+          height: 16px;
+          line-height: 16px;
+          bottom: 0;
+          font-size-adjust: 0.5;
+          content: 'NEW';
+          background: rgba(0,0,0,0.4);
+          border-bottom-left-radius: 3px;
+          border-top-left-radius: 3px;
+        }
+      }
+      img{
+        width: 100%;
+      }
+      .tit{
+        height: 30px;
+        line-height: 30px;
+        font-size: 12px;
+        width: 100%;
+        box-sizing: border-box;
+        padding-left: 3px;
+        overflow: hidden;
+      }
+      .is-video{
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background: url("../assets/imgs/video-play-icon.png") center no-repeat;
+        background-size: 60px auto;
+
+      }
+    }
+  }
+
+  ion-fab.go-top{
+    button.fab{
+      background: rgba(255, 255, 255, 0.8);
+      color: #777;
+      border: 1px solid #ccc;
+      width: 46px;
+      height: 46px;
+      &.activated{
+        background: rgba(255, 255, 255, 0.6);
+      }
+    }
+  }
+
+  ion-footer{
+    .toolbar{
+      //height: 46px;
+      min-height: 46px;
+    }
+    .toolbar-background{
+      background: #fff!important;
+    }
+
+  }
+
+  button.get-coupon{
+    width: 100%;
+    color: #fff;
+    font-size: 16px;
+    background: #fe4a65;
+    height: 38px;
+    border-radius: 4px;
+  }
+
+  .feature-line{
+    width: 100%;
+    height: 30px;
+    box-sizing: border-box;
+    padding: 0 10px 10px 10px;
+    .it{
+      height: 20px;
+      line-height: 18px;
+      box-sizing: border-box;
+      border: 1px solid #fe4a65;
+      padding: 0 6px;
+      display: inline-block;
+      margin-right: 10px;
+      font-size: 12px;
+      color: #fe4a65;
+    }
+  }
+  .juhuasuan{
+    height: 40px;
+    width: 100%;
+    background: #e61415;
+    position: relative;
+    box-sizing: border-box;
+    padding-left: 130px;
+    font-size: 12px;
+    line-height: 54px;
+    color: #fff;
+    &:before{
+      position: absolute;
+      left: 2px;
+      width: 40px;
+      height: 40px;
+      bottom: 0;
+      content: '';
+      background: url("../assets/imgs/juhuasuan-now-icon.png") center no-repeat;
+      background-size: 46px;
+    }
+    &:after{
+      position: absolute;
+      left: 42px;
+      bottom: -1px;
+      content: '';
+      width: 80px;
+      height: 40px;
+      overflow: hidden;
+      background: url("../assets/imgs/juhuasuan-icon.png") center no-repeat;
+      background-size: 80px auto;
+
+    }
+
+    .dao{
+      width: 140px;
+      height: 40px;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      display: inline-block;
+      background: url("../assets/imgs/juhuasuan-dao-icon.png") left bottom no-repeat;
+      background-size: auto 40px;
+      box-sizing: border-box;
+      padding-left: 40px;
+      color:rgba(0,0,0, 0.8);
+      line-height: 56px;
+      text-align: center;
+      overflow: hidden;
+      //background-position-y: 1px;
+      span{
+        margin: 2px;
+        color: #fff;
+        background: rgba(0,0,0, 0.8);
+        padding: 2px;
+        border-radius: 2px;
+      }
+    }
+  }
+
+  .notice{
+    width: 100%;
+    height: 48px;
+    border-top: 10px solid #efefef;
+    border-bottom: 16px solid #efefef;
+    box-sizing: border-box;
+    line-height: 22px;
+    font-size: 12px;
+    color: #333;
+    background: #ffefc4;
+    padding: 0 70px 0 10px;
+    position: relative;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    &:after{
+      position: absolute;
+      right: 10px;
+      top: 0;
+      content:'[点击查看]';
+      color: #2b9df0;
+      height: 22px;
+      line-height: 22px;
+    }
+  }
+
+  .swiper-container{
+    background: #f5f5f5;
+  }
+
+  ion-fab.iphone-x{
+    top: 38px;
+  }
+  ion-fab.fab2.iphone-x{
+    box-sizing: border-box;
+    padding-top: 38px;
+    top: 0;
+    height: 88px;
+    button.back, button.more{
+      bottom: 4px;
+      top: auto;
+    }
+  }
+
+  ion-fab.iphone-others{
+    top: 16px;
+  }
+  ion-fab.fab2.iphone-others{
+    box-sizing: border-box;
+    padding-top: 16px;
+    top: 0;
+    height: 66px;
+    button.back, button.more{
+      bottom: 4px;
+      top: auto;
+    }
+  }
+
+  ion-footer.loading{
+    button{
+      color: #fe4a65;
+    }
+    pointer-events: none;
+    &:after{
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      background: url("../assets/imgs/tail-spin.svg") center no-repeat;
+      background-size: 24px;
+      z-index: 999;
+    }
+  }
+
+}
