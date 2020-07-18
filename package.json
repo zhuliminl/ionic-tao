@@ -55,7 +55,7 @@
     "ionic2-super-tabs": "^4.3.0",
     "ionicons": "3.0.0",
     "lazysizes": "^4.0.4",
-    "lodash": "4.17.5",
+    "lodash": "4.17.19",
     "@types/lodash": "4.14.108",
     "ng-lazyload-image": "^3.4.2",
     "ngx-swiper-wrapper": "^6.3.0",
