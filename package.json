@@ -54,7 +54,7 @@
     "ionic-angular": "3.9.2",
     "ionic2-super-tabs": "^4.3.0",
     "ionicons": "3.0.0",
-    "lazysizes": "^4.0.4",
+    "lazysizes": "^5.2.2",
     "lodash": "4.17.5",
     "@types/lodash": "4.14.108",
     "ng-lazyload-image": "^3.4.2",
